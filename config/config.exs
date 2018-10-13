@@ -22,6 +22,9 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:user_id]
 
+config :gossip, :callback_module, Raisin.GossipCallback
+config :gossip, :system_module, Raisin.GossipCallback.SystemCallback
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

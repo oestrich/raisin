@@ -56,3 +56,7 @@ config :raisin, Raisin.Repo,
   database: "raisin_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :gossip, :url, "ws://localhost:4001/socket"
+config :gossip, :client_id, "c922b500-bbf8-4944-8c40-3c5559376c96"
+config :gossip, :client_secret, "b178f27b-df94-4324-abf8-d82be5e91419"
