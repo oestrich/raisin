@@ -1,20 +1,43 @@
 # Raisin
 
-To start your Phoenix server:
+![Raisin](https://raisin.grapevine.haus/images/raisin.png)
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+Raisin is the moderation tool for [Gossip](https://github.com/oestrich/gossip).
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+- [MUD Coders Slack](https://slack.mudcoders.com/)
+- [Patreon](https://www.patreon.com/exventure)
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+## Server
 
-## Learn more
+### Requirements
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+This is only required to run Grapevine itself, the server.
+
+- PostgreSQL 10
+- Elixir 1.7.2
+- Erlang 21.0.5
+- node.js 8.6
+
+### Setup
+
+```bash
+mix deps.get
+mix compile
+cd assets && npm install && node node_modules/brunch/bin/brunch build && cd ..
+mix ecto.reset
+mix phx.server
+```
+
+This will start a web server on port 4003. You can now load [http://localhost:4003/](http://localhost:4003/) to view the application.
+
+### Running Tests
+
+```bash
+MIX_ENV=test mix ecto.create
+MIX_ENV=test mix ecto.migrate
+mix test
+```
+
+## Colors
+
+- Golden Yellow: `#FFCE00`
