@@ -33,6 +33,7 @@ defmodule Raisin.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:backbone, git: "https://github.com/oestrich/gossip-backbone.git"},
       {:cowboy, "~> 1.0"},
       {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false},
       {:distillery, "~> 2.0", runtime: false},

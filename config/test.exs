@@ -9,11 +9,14 @@ config :raisin, Web.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
+config :backbone, :repo, Raisin.Repo
+
 # Configure your database
-config :raisin, Raisin.Repo,
+database = [
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
   database: "raisin_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+]
+config :raisin, Raisin.Repo, database
+config :backbone, Backbone.Repo, database

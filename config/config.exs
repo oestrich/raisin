@@ -7,7 +7,7 @@ use Mix.Config
 
 # General application configuration
 config :raisin,
-  ecto_repos: [Raisin.Repo]
+  ecto_repos: [Backbone.Repo, Raisin.Repo]
 
 # Configures the endpoint
 config :raisin, Web.Endpoint,
@@ -24,6 +24,8 @@ config :logger, :console,
 
 config :gossip, :callback_module, Raisin.GossipCallback
 config :gossip, :system_module, Raisin.GossipCallback.SystemCallback
+
+config :backbone, :repo, Backbone.Repo
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

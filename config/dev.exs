@@ -49,13 +49,14 @@ config :logger, :console, format: "[$level] $message\n"
 config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
-config :raisin, Raisin.Repo,
+database = [
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
   database: "raisin_dev",
   hostname: "localhost",
   pool_size: 10
+]
+config :raisin, Raisin.Repo, database
+config :backbone, Backbone.Repo, database
 
 config :gossip, :url, "ws://localhost:4001/socket"
 config :gossip, :client_id, "c922b500-bbf8-4944-8c40-3c5559376c96"
