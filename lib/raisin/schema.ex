@@ -1,4 +1,4 @@
-defmodule Backbone.Schema do
+defmodule Raisin.Schema do
   @moduledoc """
   Helper for setting up Ecto
   """
@@ -10,7 +10,6 @@ defmodule Backbone.Schema do
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Backbone.Schema
 
       @repo Raisin.Repo
 

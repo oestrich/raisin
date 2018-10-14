@@ -34,6 +34,7 @@ defmodule Raisin.Mixfile do
   defp deps do
     [
       {:cowboy, "~> 1.0"},
+      {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false},
       {:gettext, "~> 0.11"},
       {:gossip, git: "https://github.com/oestrich/gossip-elixir.git"},
       {:phoenix, "~> 1.3.3"},
@@ -55,6 +56,7 @@ defmodule Raisin.Mixfile do
     [
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
+      "ecto.migrate.reset": ["ecto.drop", "ecto.create", "ecto.migrate"],
       test: ["ecto.create --quiet", "ecto.migrate", "test"]
     ]
   end

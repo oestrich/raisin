@@ -22,6 +22,7 @@ defmodule Raisin.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import Raisin.DataCase
+      import Raisin.TestHelpers
     end
   end
 
