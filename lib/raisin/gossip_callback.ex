@@ -12,7 +12,7 @@ defmodule Raisin.GossipCallback do
   @behaviour Gossip.Client
 
   @impl true
-  def user_agent(), do: "Raisin"
+  def user_agent(), do: Raisin.version()
 
   @impl true
   def channels(), do: []

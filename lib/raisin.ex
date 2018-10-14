@@ -6,4 +6,15 @@ defmodule Raisin do
   Contexts are also responsible for managing your data, regardless
   if it comes from the database, an external API or others.
   """
+
+  @doc """
+  Get the running version of Raisin
+  """
+  def version() do
+    grapevine =
+      :application.loaded_applications()
+      |> Enum.find(&(elem(&1, 0) == :raisin))
+
+    "Raisin v#{elem(grapevine, 2)}"
+  end
 end
