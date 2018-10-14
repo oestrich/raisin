@@ -7,6 +7,8 @@ defmodule Raisin.GossipCallback do
 
   require Logger
 
+  alias Raisin.Messages
+
   @behaviour Gossip.Client
 
   @impl true
@@ -19,7 +21,9 @@ defmodule Raisin.GossipCallback do
   def players(), do: []
 
   @impl true
-  def message_broadcast(_message), do: :ok
+  def message_broadcast(message) do
+    Messages.record(message.channel, message.game, message.name, message.message)
+  end
 
   @impl true
   def player_sign_in(_game_name, _player_name), do: :ok
