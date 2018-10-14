@@ -4,7 +4,7 @@ defmodule Raisin.Mixfile do
   def project do
     [
       app: :raisin,
-      version: "0.0.1",
+      version: "0.1.0",
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -35,6 +35,7 @@ defmodule Raisin.Mixfile do
     [
       {:cowboy, "~> 1.0"},
       {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false},
+      {:distillery, "~> 2.0", runtime: false},
       {:gettext, "~> 0.11"},
       {:gossip, git: "https://github.com/oestrich/gossip-elixir.git"},
       {:phoenix, "~> 1.3.3"},
