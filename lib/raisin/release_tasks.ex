@@ -14,6 +14,7 @@ defmodule Raisin.ReleaseTasks do
   ]
 
   @repos [
+    Backbone.Repo,
     Raisin.Repo
   ]
 
