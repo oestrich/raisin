@@ -10,10 +10,10 @@ config :raisin,
   ecto_repos: [Raisin.Repo]
 
 # Configures the endpoint
-config :raisin, RaisinWeb.Endpoint,
+config :raisin, Web.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "Q1KwEUV8LFTlP1vvUspSedvlSbJsdCwOENg6ZEDeYX+OEXPfw6L1xx+WpvAe8yyM",
-  render_errors: [view: RaisinWeb.ErrorView, accepts: ~w(html json)],
+  render_errors: [view: Web.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Raisin.PubSub,
            adapter: Phoenix.PubSub.PG2]
 

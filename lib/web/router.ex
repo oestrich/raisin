@@ -1,5 +1,5 @@
-defmodule RaisinWeb.Router do
-  use RaisinWeb, :router
+defmodule Web.Router do
+  use Web, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,14 +13,14 @@ defmodule RaisinWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", RaisinWeb do
+  scope "/", Web do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", RaisinWeb do
+  # scope "/api", Web do
   #   pipe_through :api
   # end
 end

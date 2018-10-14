@@ -1,3 +1,3 @@
-defmodule RaisinWeb.PageViewTest do
-  use RaisinWeb.ConnCase, async: true
+defmodule Web.PageViewTest do
+  use Web.ConnCase, async: true
 end

@@ -1,8 +1,3 @@
-defmodule RaisinWeb.PageControllerTest do
-  use RaisinWeb.ConnCase
-
-  test "GET /", %{conn: conn} do
-    conn = get conn, "/"
-    assert html_response(conn, 200) =~ "Welcome to Phoenix!"
-  end
+defmodule Web.PageControllerTest do
+  use Web.ConnCase
 end

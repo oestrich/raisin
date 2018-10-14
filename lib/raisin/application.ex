@@ -11,7 +11,7 @@ defmodule Raisin.Application do
       # Start the Ecto repository
       supervisor(Raisin.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(RaisinWeb.Endpoint, []),
+      supervisor(Web.Endpoint, []),
       # Start your own worker by calling: Raisin.Worker.start_link(arg1, arg2, arg3)
       # worker(Raisin.Worker, [arg1, arg2, arg3]),
     ]
@@ -25,7 +25,7 @@ defmodule Raisin.Application do
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    RaisinWeb.Endpoint.config_change(changed, removed)
+    Web.Endpoint.config_change(changed, removed)
     :ok
   end
 end

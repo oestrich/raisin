@@ -2,8 +2,8 @@ use Mix.Config
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :raisin, RaisinWeb.Endpoint,
-  http: [port: 4001],
+config :raisin, Web.Endpoint,
+  http: [port: 4011],
   server: false
 
 # Print only warnings and errors during test

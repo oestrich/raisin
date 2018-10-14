@@ -1,12 +1,12 @@
-defmodule RaisinWeb do
+defmodule Web do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use RaisinWeb, :controller
-      use RaisinWeb, :view
+      use Web, :controller
+      use Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,17 +19,17 @@ defmodule RaisinWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: RaisinWeb
+      use Phoenix.Controller, namespace: Web
       import Plug.Conn
-      import RaisinWeb.Router.Helpers
-      import RaisinWeb.Gettext
+      import Web.Router.Helpers
+      import Web.Gettext
     end
   end
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/raisin_web/templates",
-                        namespace: RaisinWeb
+      use Phoenix.View, root: "lib/web/templates",
+                        namespace: Web
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
@@ -37,9 +37,9 @@ defmodule RaisinWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import RaisinWeb.Router.Helpers
-      import RaisinWeb.ErrorHelpers
-      import RaisinWeb.Gettext
+      import Web.Router.Helpers
+      import Web.ErrorHelpers
+      import Web.Gettext
     end
   end
 
@@ -54,7 +54,7 @@ defmodule RaisinWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import RaisinWeb.Gettext
+      import Web.Gettext
     end
   end
 

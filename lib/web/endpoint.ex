@@ -1,7 +1,7 @@
-defmodule RaisinWeb.Endpoint do
+defmodule Web.Endpoint do
   use Phoenix.Endpoint, otp_app: :raisin
 
-  socket "/socket", RaisinWeb.UserSocket
+  socket "/socket", Web.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -37,7 +37,7 @@ defmodule RaisinWeb.Endpoint do
     key: "_raisin_key",
     signing_salt: "i0UzEozc"
 
-  plug RaisinWeb.Router
+  plug Web.Router
 
   @doc """
   Callback invoked for dynamically configuring the endpoint.
