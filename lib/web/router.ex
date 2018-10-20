@@ -10,15 +10,21 @@ defmodule Web.Router do
     plug Web.Plugs.FetchUser
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
+  pipeline :admin do
+    plug Web.Plugs.EnsureUser
   end
 
   scope "/", Web do
-    pipe_through :browser # Use the default browser stack
+    pipe_through([:browser])
 
     get "/", PageController, :index
 
     resources("/sign-in", SessionController, only: [:new, :create, :delete], singleton: true)
+  end
+
+  scope "/", Web do
+    pipe_through([:browser, :admin])
+
+    resources("/channels", ChannelController, only: [:index, :show])
   end
 end

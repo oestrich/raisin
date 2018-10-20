@@ -1,0 +1,26 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link("Home", to: page_path(@conn, :index)) %></li>
+    <li class="breadcrumb-item"><%= link("Channels", to: channel_path(@conn, :index)) %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @channel.name %></li>
+  </ol>
+</nav>
+
+<table class="table">
+  <thead>
+    <th scope="col">Game</th>
+    <th scope="col">Player</th>
+    <th scope="col">Message</th>
+    <th scope="col">Timestamps</th>
+  </thead>
+  <tbody>
+    <%= Enum.map(@messages, fn message -> %>
+      <tr>
+        <td><%= message.game_name %></td>
+        <td><%= message.player_name %></td>
+        <td><%= message.message %></td>
+        <td><%= display_time(message) %></td>
+      </tr>
+    <% end) %>
+  </tbody>
+</table>

@@ -1,0 +1,21 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link("Home", to: page_path(@conn, :index)) %></li>
+    <li class="breadcrumb-item active" aria-current="page">Channels</li>
+  </ol>
+</nav>
+
+<table class="table">
+  <thead>
+    <th scope="col">Name</th>
+    <th scope="col">Hidden</th>
+  </thead>
+  <tbody>
+    <%= Enum.map(@channels, fn channel -> %>
+      <tr>
+        <td><%= link(channel.name, to: channel_path(@conn, :show, channel.name)) %></td>
+        <td><%= channel.hidden %></td>
+      </tr>
+    <% end) %>
+  </tbody>
+</table><Paste>

@@ -3,10 +3,19 @@ defmodule Raisin.Messages do
   Context for Gossip messages
   """
 
+  import Ecto.Query
+
   alias Backbone.Channels
   alias Backbone.Games
   alias Raisin.Messages.Message
   alias Raisin.Repo
+
+  def for_channel(channel) do
+    Message
+    |> where([m], m.channel_id == ^channel.id)
+    |> order_by([m], asc: m.inserted_at)
+    |> Repo.all()
+  end
 
   @doc """
   Save a message from Gossip on a channel

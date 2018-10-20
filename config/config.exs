@@ -7,6 +7,7 @@ use Mix.Config
 
 # General application configuration
 config :raisin,
+  namespace: Web,
   ecto_repos: [Backbone.Repo, Raisin.Repo]
 
 # Configures the endpoint

@@ -27,6 +27,9 @@
             <ul class="navbar-nav ml-auto">
               <%= if Map.get(assigns, :current_user) do %>
                 <li class="nav-item">
+                  <%= link("Channels", to: channel_path(@conn, :index), class: "nav-link") %>
+                </li>
+                <li class="nav-item">
                   <%= link("Sign Out", to: session_path(@conn, :delete), method: :delete, class: "nav-link") %>
                 </li>
               <% else %>
