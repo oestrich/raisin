@@ -34,7 +34,9 @@ defmodule Raisin.Mixfile do
   defp deps do
     [
       {:backbone, git: "https://github.com/oestrich/gossip-backbone.git"},
+      {:bcrypt_elixir, "~> 1.0"},
       {:cowboy, "~> 1.0"},
+      {:comeonin, "~> 4.0"},
       {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false},
       {:distillery, "~> 2.0", runtime: false},
       {:gettext, "~> 0.11"},

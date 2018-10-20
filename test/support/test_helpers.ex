@@ -3,6 +3,19 @@ defmodule Raisin.TestHelpers do
 
   alias Backbone.Channels
   alias Backbone.Games
+  alias Raisin.Accounts
+
+  def create_user(attributes \\ %{}) do
+    attributes = Map.merge(%{
+      email: "user@example.com",
+      password: "password",
+      password_confirmation: "password",
+    }, attributes)
+
+    {:ok, user} = Accounts.register(attributes)
+
+    user
+  end
 
   def cache_channel(attributes \\ %{}) do
     attributes = Map.merge(%{

@@ -20,3 +20,5 @@ database = [
 ]
 config :raisin, Raisin.Repo, database
 config :backbone, Backbone.Repo, database
+
+config :bcrypt_elixir, :log_rounds, 4

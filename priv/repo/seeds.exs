@@ -1,11 +1,7 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     Raisin.Repo.insert!(%Raisin.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+alias Raisin.Accounts
+
+{:ok, _user} = Accounts.register(%{
+  email: "admin@example.com",
+  password: "password",
+  password_hash: "password",
+})
