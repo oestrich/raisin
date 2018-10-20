@@ -12,7 +12,7 @@ defmodule Raisin.Messages do
 
   def for_channel(channel) do
     Message
-    |> where([m], m.channel_id == ^channel.id)
+    |> where([m], m.channel_name == ^channel.name)
     |> order_by([m], asc: m.inserted_at)
     |> Repo.all()
   end
