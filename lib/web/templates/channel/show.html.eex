@@ -6,21 +6,10 @@
   </ol>
 </nav>
 
-<table class="table">
-  <thead>
-    <th scope="col">Game</th>
-    <th scope="col">Player</th>
-    <th scope="col">Message</th>
-    <th scope="col">Timestamps</th>
-  </thead>
-  <tbody>
-    <%= Enum.map(@messages, fn message -> %>
-      <tr>
-        <td><%= message.game_name %></td>
-        <td><%= message.player_name %></td>
-        <td><%= message.message %></td>
-        <td><%= display_time(message) %></td>
-      </tr>
-    <% end) %>
-  </tbody>
-</table>
+<div class="terminal channel">
+  <%= Enum.map(@messages, fn message -> %>
+    <div class="message">
+      [<%= display_time(message) %>] <span class="blue"><%= message.player_name %>@<%= message.game_name %></span>: <span class="green"><%= message.message %></span>
+    </div>
+  <% end) %>
+</div>

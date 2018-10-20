@@ -10,6 +10,9 @@ defmodule Raisin.Messages do
   alias Raisin.Messages.Message
   alias Raisin.Repo
 
+  @doc """
+  Retrieve messages for a channel
+  """
   def for_channel(channel) do
     Message
     |> where([m], m.channel_name == ^channel.name)
