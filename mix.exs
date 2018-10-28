@@ -40,7 +40,7 @@ defmodule Raisin.Mixfile do
       {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false},
       {:distillery, "~> 2.0", runtime: false},
       {:gettext, "~> 0.11"},
-      {:gossip, git: "https://github.com/oestrich/gossip-elixir.git"},
+      {:gossip, "~> 1.0"},
       {:phoenix, "~> 1.3.3"},
       {:phoenix_ecto, "~> 3.2"},
       {:phoenix_html, "~> 2.10"},

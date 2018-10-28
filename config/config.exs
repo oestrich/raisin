@@ -23,8 +23,12 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:user_id]
 
-config :gossip, :callback_module, Raisin.GossipCallback
-config :gossip, :system_module, Raisin.GossipCallback.SystemCallback
+config :gossip, :callback_modules,
+  core: Raisin.GossipCallback,
+  players: Raisin.GossipCallback,
+  tells: Raisin.GossipCallback,
+  games: Raisin.GossipCallback,
+  system: Raisin.GossipCallback.SystemCallback
 
 config :backbone, :repo, Backbone.Repo
 

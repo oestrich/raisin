@@ -9,7 +9,10 @@ defmodule Raisin.GossipCallback do
 
   alias Raisin.Messages
 
-  @behaviour Gossip.Client
+  @behaviour Gossip.Client.Core
+  @behaviour Gossip.Client.Players
+  @behaviour Gossip.Client.Tells
+  @behaviour Gossip.Client.Games
 
   @impl true
   def user_agent(), do: Raisin.version()
@@ -32,13 +35,19 @@ defmodule Raisin.GossipCallback do
   def player_sign_out(_game_name, _player_name), do: :ok
 
   @impl true
-  def players_status(_game_name, _player_names), do: :ok
+  def player_update(_game_name, _player_names), do: :ok
 
   @impl true
-  def tell_received(_from_game, _from_player, _to_player, _message), do: :ok
+  def tell_receive(_from_game, _from_player, _to_player, _message), do: :ok
 
   @impl true
-  def games_status(_game), do: :ok
+  def game_update(_game), do: :ok
+
+  @impl true
+  def game_connect(_game), do: :ok
+
+  @impl true
+  def game_disconnect(_game), do: :ok
 
   defmodule SystemCallback do
     @moduledoc """
