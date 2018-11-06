@@ -13,7 +13,6 @@ config :backbone, :repo, Raisin.Repo
 
 # Configure your database
 database = [
-  adapter: Ecto.Adapters.Postgres,
   database: "raisin_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

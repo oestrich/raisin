@@ -6,7 +6,8 @@ defmodule Raisin.ReleaseTasks do
     :crypto,
     :ssl,
     :postgrex,
-    :ecto
+    :ecto,
+    :ecto_sql
   ]
 
   @apps %{
@@ -39,7 +40,7 @@ defmodule Raisin.ReleaseTasks do
 
     # Start the Repo(s) for raisin
     IO.puts("Starting repos..")
-    Enum.each(repos, &(&1.start_link(pool_size: 1)))
+    Enum.each(repos, &(&1.start_link(pool_size: 2)))
   end
 
   def priv_dir(app), do: "#{:code.priv_dir(app)}"

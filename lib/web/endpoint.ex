@@ -1,7 +1,7 @@
 defmodule Web.Endpoint do
   use Phoenix.Endpoint, otp_app: :raisin
 
-  socket "/socket", Web.UserSocket
+  socket "/socket", Web.UserSocket, websocket: true
 
   # Serve at "/" the static files from "priv/static" directory.
   #

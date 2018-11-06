@@ -1,5 +1,7 @@
 defmodule Raisin.Repo do
-  use Ecto.Repo, otp_app: :raisin
+  use Ecto.Repo,
+    otp_app: :raisin,
+    adapter: Ecto.Adapters.Postgres
 
   @doc """
   Dynamically loads the repository url from the

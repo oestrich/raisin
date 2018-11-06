@@ -35,17 +35,18 @@ defmodule Raisin.Mixfile do
     [
       {:backbone, git: "https://github.com/oestrich/gossip-backbone.git"},
       {:bcrypt_elixir, "~> 1.0"},
-      {:cowboy, "~> 1.0"},
+      {:cowboy, "~> 2.0"},
       {:comeonin, "~> 4.0"},
       {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false},
       {:distillery, "~> 2.0", runtime: false},
       {:gettext, "~> 0.11"},
       {:gossip, "~> 1.0"},
-      {:phoenix, "~> 1.3.3"},
-      {:phoenix_ecto, "~> 3.2"},
+      {:phoenix, "~> 1.4.0-rc.3"},
+      {:phoenix_ecto, "~> 4.0"},
       {:phoenix_html, "~> 2.10"},
-      {:phoenix_live_reload, "~> 1.0", only: :dev},
+      {:phoenix_live_reload, "~> 1.2-rc.0", only: :dev},
       {:phoenix_pubsub, "~> 1.0"},
+      {:plug_cowboy, "~> 2.0", override: true},
       {:postgrex, ">= 0.0.0"}
     ]
   end
