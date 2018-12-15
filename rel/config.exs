@@ -33,7 +33,7 @@ environment :prod do
   set cookie: :crypto.hash(:sha256, System.get_env("COOKIE")) |> Base.encode16 |> String.to_atom
 
   set config_providers: [
-    {Mix.Releases.Config.Providers.Elixir, ["/etc/grapevine.config.exs"]}
+    {Mix.Releases.Config.Providers.Elixir, ["/etc/raisin.config.exs"]}
   ]
 end
 
