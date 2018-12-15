@@ -8,6 +8,7 @@ defmodule Raisin.GossipCallback do
   require Logger
 
   alias Raisin.Messages
+  alias Backbone.Sync
 
   @behaviour Gossip.Client.Core
   @behaviour Gossip.Client.Players
@@ -22,6 +23,11 @@ defmodule Raisin.GossipCallback do
 
   @impl true
   def players(), do: []
+
+  @impl true
+  def authenticated() do
+    Sync.trigger_sync()
+  end
 
   @impl true
   def message_broadcast(message) do
@@ -56,10 +62,24 @@ defmodule Raisin.GossipCallback do
 
     @behaviour Gossip.Client.SystemCallback
 
+    alias Backbone.Channels
     alias Backbone.Sync
 
+    @impl true
+    def authenticated(state) do
+      channels = Enum.map(Channels.all(), &(&1.name))
+      {:ok, %{state | channels: channels}}
+    end
+
+    @impl true
     def process(state, event = %{"event" => "sync/channels"}) do
       Sync.sync_channels(state, event)
+    end
+
+    def process(state, event = %{"event" => "sync/events"}) do
+      Sync.sync_events(event)
+
+      {:ok, state}
     end
 
     def process(state, event = %{"event" => "sync/games"}) do
