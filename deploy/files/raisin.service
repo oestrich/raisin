@@ -1,0 +1,20 @@
+[Unit]
+Description=Runner for Grapevine
+After=network.target
+
+[Service]
+Type=forking
+User=deploy
+Group=deploy
+WorkingDirectory=/home/deploy/raisin
+Environment=LANG=en_US.UTF-8
+ExecStart=/home/deploy/raisin/bin/raisin start
+ExecStop=/home/deploy/raisin/bin/raisin stop
+PIDFile=/home/deploy/raisin.pid
+SyslogIdentifier=raisin
+RemainAfterExit=no
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

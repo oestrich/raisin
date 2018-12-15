@@ -11,10 +11,10 @@ defmodule Raisin do
   Get the running version of Raisin
   """
   def version() do
-    grapevine =
+    raisin =
       :application.loaded_applications()
       |> Enum.find(&(elem(&1, 0) == :raisin))
 
-    "Raisin v#{elem(grapevine, 2)}"
+    "Raisin v#{elem(raisin, 2)}"
   end
 end
