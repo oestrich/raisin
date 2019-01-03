@@ -24,7 +24,11 @@ defmodule Raisin.TestHelpers do
       "hidden" => false,
     }, attributes)
 
-    Channels.cache_remote([attributes])
+    Channels.cache_remote([%{
+      "action" => "create",
+      "logged_at" => "2018-11-24T12:00:00Z",
+      "payload" => attributes
+    }])
 
     {:ok, channel} = Channels.get(attributes["name"])
     channel
@@ -44,7 +48,11 @@ defmodule Raisin.TestHelpers do
       ]
     }, attributes)
 
-    Games.cache_remote([attributes])
+    Games.cache_remote([%{
+      "action" => "create",
+      "logged_at" => "2018-11-24T12:00:00Z",
+      "payload" => attributes
+    }])
 
     {:ok, game} = Games.get_by_name(attributes["game"])
     game
