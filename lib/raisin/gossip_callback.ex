@@ -72,19 +72,22 @@ defmodule Raisin.GossipCallback do
     end
 
     @impl true
+    def process(state, event = %{"event" => "sync/achievements"}) do
+      Sync.sync_achievements(event)
+      {:ok, state}
+    end
+
     def process(state, event = %{"event" => "sync/channels"}) do
       Sync.sync_channels(state, event)
     end
 
     def process(state, event = %{"event" => "sync/events"}) do
       Sync.sync_events(event)
-
       {:ok, state}
     end
 
     def process(state, event = %{"event" => "sync/games"}) do
       Sync.sync_games(event)
-
       {:ok, state}
     end
 
